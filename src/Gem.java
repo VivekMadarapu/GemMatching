@@ -2,9 +2,10 @@ import java.awt.Font;
 import java.util.Random;
 
 enum GemType {
-    GREEN, BLUE, ORANGE; //define the different types of Gems, comma delimited
+    GREEN, BLUE, ORANGE, VOID //define the different types of Gems, comma delimited
 }
 
+@SuppressWarnings("WeakerAccess")
 public class Gem 
 {
 
@@ -45,6 +46,8 @@ public class Gem
 
 	public void draw(double x, double y){
 		StdDraw.picture(x, y, "gem_"+type.toString().toLowerCase()+".png");
+		StdDraw.setPenColor(StdDraw.WHITE);
+		StdDraw.text(x, y, points+"");
 	}
 
 	@Override

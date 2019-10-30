@@ -1,19 +1,9 @@
-/*************************************************************************
- * Name        : Keith Vertanen
- * Username    : kvertanen
- * Description : Gem Matching game.  Two players alternate choosing
- *               where to place the next gem.  Blocks of the same color
- *               get a score multiplier equal to the number of gems in
- *               that block.  The game is over when either players row
- *               reaches 16 gems.
- *************************************************************************/
-
 import java.awt.Font;
 
 public class GemGame
 {
 	// The maximum number of gems that will fit across the screen
-	static final int MAX_GEMS = 16;
+	private static final int MAX_GEMS = 16;
 
 	// Given a gem's 0-based index, calculate its x-position
 	// in a unit box coordinate system.
@@ -24,7 +14,7 @@ public class GemGame
 
 	// Given a mouse x-position, figure out what gem index
 	// we should insert before.
-	public static int xToIndex(double x)
+	private static int xToIndex(double x)
 	{
 		return (int) ((x + 0.5 / MAX_GEMS) / (1.0 / MAX_GEMS));
 	}
@@ -50,6 +40,9 @@ public class GemGame
 
 		int score1 = 0;
 		int score2 = 0;
+
+		StdDraw.setCanvasSize(550, 500);
+		StdDraw.setScale(0, 1.08);
 
 		// Game continues until we fill up the entire row of gems
 		while ((player1.size() < MAX_GEMS) && (player2.size() < MAX_GEMS))
